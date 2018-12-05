@@ -1,0 +1,11 @@
+--- ./tensorflow/core/platform/posix/posix_file_system.cc.ori	2018-07-02 11:05:18.363565000 +0200
++++ ./tensorflow/core/platform/posix/posix_file_system.cc	2018-07-02 11:07:20.388461000 +0200
+@@ -18,7 +18,7 @@
+ #include <fcntl.h>
+ #include <stdio.h>
+ #include <sys/mman.h>
+-#if !defined(__APPLE__)
++#if defined(__linux__) && !defined(__ANDROID__)
+ #include <sys/sendfile.h>
+ #endif
+ #include <sys/stat.h>

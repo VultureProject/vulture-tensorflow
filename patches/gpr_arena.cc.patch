@@ -1,0 +1,11 @@
+--- /var/tmp/gitlab_runner/.cache/bazel/_bazel_gitlab-runner/f86291f6b13fc2615dda6889fc142805/external/grpc/src/core/lib/gpr/arena.cc.ori	2018-07-02 10:31:31.225890000 +0200
++++ /var/tmp/gitlab_runner/.cache/bazel/_bazel_gitlab-runner/f86291f6b13fc2615dda6889fc142805/external/grpc/src/core/lib/gpr/arena.cc	2018-07-02 10:32:22.752738000 +0200
+@@ -128,7 +128,7 @@
+           ROUND_UP_TO_ALIGNMENT_SIZE(sizeof(zone)) + next_z_size));
+       next_z->size_begin = z->size_end;
+       next_z->size_end = z->size_end + next_z_size;
+-      if (!gpr_atm_rel_cas(&z->next_atm, static_cast<gpr_atm>(NULL),
++      if (!gpr_atm_rel_cas(&z->next_atm, 0,
+                            (gpr_atm)next_z)) {
+         gpr_free_aligned(next_z);
+         next_z = (zone*)gpr_atm_acq_load(&z->next_atm);
