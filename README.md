@@ -1,4 +1,4 @@
-# Guidelines for building tensorflow C++ libraries on FreeBSD 11.X #
+# Guidelines for building tensorflow C++ libraries on FreeBSD 11.X and 12.X #
 
 Following guidelines have been tested on FreeBSD 11.1 and FreeBSD 11.2
 Do not hesitate to report any problem or improvements
