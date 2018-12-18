@@ -50,9 +50,7 @@ bazel fetch @grpc//:gpr_base <br>
 This is not needed as we won't compile Python <br>
 `echo > tensorflow/requirements.txt`
 
-#Adapt the path to your bazel tmp directory <br>
-``ARENA_CC=`find /var/tmp/gitlab_runner/.cache/bazel/_bazel_gitlab-runner/*/external/grpc -name "arena.cc" ` `` <br>
-`patch ${ARENA_CC} < ../patches/gpr_arena.cc.patch` <br>
+#Adapt paths to your bazel tmp directory <br>
 `patch ./tensorflow/core/platform/env.cc < ../patches/env.cc.patch` <br>
 `patch ./tensorflow/core/platform/posix/posix_file_system.cc < ../patches/posix_file_system.cc.patch` <br>
 `sed -i '' -E 's/if cpu_value in \("Linux"\)\:/if cpu_value in ("Linux","FreeBSD"):/g' third_party/gpus/rocm_configure.bzl` <br>
